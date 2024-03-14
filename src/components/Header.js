@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types'
 
+
 const Header = (props) => {
   //   console.log(props.title);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -33,7 +34,7 @@ const Header = (props) => {
               </a>
             </li>
           </ul>
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"  
@@ -43,7 +44,11 @@ const Header = (props) => {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
+          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+  <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode</label>
+</div>
         </div>
       </div>
     </nav>
